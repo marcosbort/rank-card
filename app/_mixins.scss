@@ -1,0 +1,24 @@
+@mixin tiny-mobile {
+  @media (max-width: 374px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 901px) {
+    @content;
+  }
+}
+
+@mixin flex($direction: row, $justify: center, $align: center, $wrap: wrap) {
+  display: flex;
+  flex-flow: $direction $wrap;
+  justify-content: $justify;
+  align-items: $align;
+}
