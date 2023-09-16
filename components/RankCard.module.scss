@@ -1,18 +1,12 @@
 @import '../app/mixins';
 
-$transition: 0.5s;
+$transition: 0.4s;
 
 .RankCard-container {
   @include flex(row, center, center);
-  align-items: center;
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   overflow: hidden;
-  @include mobile {
-    width: 100vw;
-    object-fit: cover;
-    scrollbar-width: none;
-  }
 
   &::before {
     content: '';
@@ -51,9 +45,10 @@ $transition: 0.5s;
   z-index: 10;
 
   &__title {
-    transform: translate(85px, 0);
+    text-align: center;
     color: #fff;
     font-size: 24px;
+    margin: 0 0 24px 0;
     transition: $transition;
   }
   &__item {
@@ -69,9 +64,8 @@ $transition: 0.5s;
     overflow: hidden;
     &:hover {
       background-color: rgba(255, 255, 255, 0.3);
+      background-color: rgba(255, 255, 255, 0.2);
       box-shadow: -15px 30px 50px rgba(0, 0, 0, 0.5);
-      transform: scale(1.1) translate(20px, -10px);
-      transform: scale(1.15) translate(18px, -8px);
       transform: scale(1.15) translate(30px, -10px);
       z-index: 20;
     }
@@ -98,18 +92,19 @@ $transition: 0.5s;
       @include flex(column, center, flex-start);
       color: #fff;
       padding: 1px 0 0 0;
+      overflow: hidden;
       transition: $transition;
 
       &__rank {
         position: absolute;
         right: -50px;
         font-size: 36px;
-        color: #03a9f4;
-        transition: 0.5s;
+        color: #2196f3;
+        transition: $transition;
         span {
           font-size: 25px;
           font-weight: 500;
-          opacity: 0.25;
+          opacity: 0.4;
         }
       }
       &__name {
@@ -118,20 +113,34 @@ $transition: 0.5s;
         transition: $transition;
       }
       &__detail {
+        position: relative;
         font-size: 13px;
         font-weight: 300;
         line-height: 20px;
+        margin: 0 0 0 0;
         transition: $transition;
+        &::before {
+          position: absolute;
+          content: '';
+          top: 4px;
+          left: -55px;
+          width: 50px;
+          height: 11px;
+          background: #e91e63;
+          background: #2196f3;
+          transition: $transition;
+        }
       }
     }
     &:hover &__content__rank {
       right: 25px;
+      right: 28px;
     }
     &:hover &__img-box img {
-      scale: 1.15;
+      scale: 1.17;
     }
-  }
-  &:hover &__title {
-    transform: translate(0, 0);
+    &:hover &__content__detail {
+      margin: 0 0 0 12px;
+    }
   }
 }
