@@ -1,9 +1,9 @@
-import RankCardContainer from './../components/RankCardContainer'
+import RankCard from './../components/RankCard'
 
 export default function Home() {
   return (
     <>
-      <RankCardContainer />
+      <RankCard />
     </>
   )
 }

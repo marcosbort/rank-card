@@ -1,3 +1,41 @@
+@import '../app/mixins';
+
+$transition: 0.5s;
+
+.RankCard-container {
+  @include flex(row, center, center);
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  @include mobile {
+    width: 100vw;
+    object-fit: cover;
+    scrollbar-width: none;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(#ffc107, #e91e63);
+    border-radius: 50%;
+    transform: translate(-250px, -120px);
+    z-index: 2;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(#2196f3, #31ff38);
+    border-radius: 50%;
+    transform: translate(250px, 150px);
+    z-index: 2;
+  }
+}
+
 .RankCard {
   position: relative;
   min-width: 350px;
@@ -13,8 +51,87 @@
   z-index: 10;
 
   &__title {
-    text-align: center;
+    transform: translate(85px, 0);
     color: #fff;
     font-size: 24px;
+    transition: $transition;
+  }
+  &__item {
+    position: relative;
+    @include flex(row, flex-start, center);
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px 0;
+    margin: 10px 0;
+    cursor: pointer;
+    transform: translateZ(0px);
+    transition: $transition ease;
+    overflow: hidden;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      box-shadow: -15px 30px 50px rgba(0, 0, 0, 0.5);
+      transform: scale(1.1) translate(20px, -10px);
+      transform: scale(1.15) translate(18px, -8px);
+      transform: scale(1.15) translate(30px, -10px);
+      z-index: 20;
+    }
+
+    &__img-box {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 0 10px;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: $transition;
+      }
+    }
+
+    &__content {
+      @include flex(column, center, flex-start);
+      color: #fff;
+      padding: 1px 0 0 0;
+      transition: $transition;
+
+      &__rank {
+        position: absolute;
+        right: -50px;
+        font-size: 36px;
+        color: #03a9f4;
+        transition: 0.5s;
+        span {
+          font-size: 25px;
+          font-weight: 500;
+          opacity: 0.25;
+        }
+      }
+      &__name {
+        line-height: 20px;
+        font-weight: 600;
+        transition: $transition;
+      }
+      &__detail {
+        font-size: 13px;
+        font-weight: 300;
+        line-height: 20px;
+        transition: $transition;
+      }
+    }
+    &:hover &__content__rank {
+      right: 25px;
+    }
+    &:hover &__img-box img {
+      scale: 1.15;
+    }
+  }
+  &:hover &__title {
+    transform: translate(0, 0);
   }
 }
