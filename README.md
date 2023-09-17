@@ -1,3 +1,9 @@
+## Winners card
+### Styles builded only in sass
+Demo: https://winners-card.netlify.app/
+
+<img width="1367" alt="Screen Shot 2023-09-17 at 2 06 55 AM" src="https://github.com/marcosbort/rank-card/assets/86331998/4e7e930d-a1c5-4af9-9f79-52b516cd690a">
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
