@@ -1,6 +1,6 @@
 export type RankItem = {
   rank: number
   name: string
-  detail: string
+  profession: string
   image: string
 }

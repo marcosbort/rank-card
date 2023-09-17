@@ -1,9 +1,9 @@
-import RankCard from './../components/RankCard'
+import Winners from '../components/Winners'
 
 export default function Home() {
   return (
     <>
-      <RankCard />
+      <Winners />
     </>
   )
 }
