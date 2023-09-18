@@ -20,22 +20,20 @@ export default function Winners() {
             <h2>Winners</h2>
             <TrophyStar />
           </div>
-          <main className={styles['Winners__content']}>
+          <ul className={styles['Winners__content']}>
             {rank.map(item => (
-              <>
-                <div className={styles['Winners__item']}>
-                  <div className={styles['Winners__item__img-box']}>
-                    <img src={item.image} alt="profile image" />
-                  </div>
-                  <div className={styles['Winners__item__content']}>
-                    <h3 className={styles['Winners__item__content__rank']}><span>#</span>{item.rank}</h3>
-                    <h4 className={styles['Winners__item__content__name']}>{item.name}</h4>
-                    <p className={styles['Winners__item__content__profession']}>{item.profession}</p>
-                  </div>
+              <li className={styles['Winners__item']} key={item.rank} >
+                <div className={styles['Winners__item__img-box']}>
+                  <img src={item.image} alt="profile image" />
                 </div>
-              </>
+                <div className={styles['Winners__item__content']}>
+                  <h3 className={styles['Winners__item__content__rank']}><span>#</span>{item.rank}</h3>
+                  <h4 className={styles['Winners__item__content__name']}>{item.name}</h4>
+                  <p className={styles['Winners__item__content__profession']}>{item.profession}</p>
+                </div>
+              </li>
             ))}
-          </main>
+          </ul>
           <footer className={styles['Winners__footer']}>
             <h3>Only</h3><SassLogo />
           </footer>
